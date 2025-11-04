@@ -1,9 +1,9 @@
 import { configDotenv } from "dotenv";
 import express from "express";
 import cors from "cors";
-import resumeParseRoutes from "./src/routes/resumeparse.routes.js";
-import dbParseRoutes from "./src/routes/askdb.routes.js";
-import { pool } from "./src/db/dbconnection.js";
+import resumeParseRoutes from "./routes/resumeparse.routes.js";
+import dbParseRoutes from "./routes/askdb.routes.js";
+import { pool } from "./db/dbconnection.js";
 configDotenv();
 
 const app = express();
