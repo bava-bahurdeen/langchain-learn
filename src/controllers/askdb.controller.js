@@ -10,13 +10,15 @@ export const askDatabase = async (req, res) => {
       return res.status(400).json({ error: "Question is required" });
     }
     const result = await generateQuery(question,schema);
+    console.log(result);
+    
     if (!result) {
       return res.status(500).json({ error: "Failed to generate query" });
     }
     const sqlQuery = await runQuery(result)
     const AI_result = await SummarizeResult(sqlQuery,question)
     console.log(AI_result);
-    return res.status(200).json({ query: AI_result });
+    return res.status(200).json({ data:AI_result });
     
   } catch (error) {
     return res.status(500).json({message:'Internal Server Error'})
