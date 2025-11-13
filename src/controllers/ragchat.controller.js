@@ -6,7 +6,7 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import z from "zod";
 const formatedSchema = z.object({
   question: z.string(),
-  recommendations: z
+  products: z
     .array(
       z.object({
         name: z.string().min(1, "Product name is required"),
