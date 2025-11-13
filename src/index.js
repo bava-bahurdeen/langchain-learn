@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import resumeParseRoutes from "./routes/resumeparse.routes.js";
 import dbParseRoutes from "./routes/askdb.routes.js";
+import ragChatRoutes from './routes/ragchat.routes.js'
 import { pool } from "./db/dbconnection.js";
 configDotenv();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api/resume", resumeParseRoutes);
 app.use("/api/db", dbParseRoutes);
+app.use('/api/ragchat',ragChatRoutes)
 const PORT = process.env.PORT;
 async function testConnection() {
   try {
